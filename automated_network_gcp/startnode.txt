@@ -1,0 +1,8 @@
+#! /bin/bash
+
+
+
+boot=$(cat output.txt)
+#account=$(jq '.address' /home/node1/keystore/UTC* | xargs -n 3)
+
+geth --datadir="node1" --networkid 1234 --port 30302 --rpc --rpcport "8000" --rpcaddr "0.0.0.0" --rpccorsdomain "{{rpccorsdomain}}" --rpcapi "{{rpcapi}}" --bootnodes "$boot" 

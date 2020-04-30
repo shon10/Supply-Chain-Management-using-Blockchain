@@ -1,0 +1,88 @@
+{
+    "networkId": "1234" ,
+    "difficulty" :"0x400",
+    "gasLimit":"0xfff",
+    "bootnode":{   
+        "name":"bootnode",
+        "startupScript":"bootnode.sh"
+    },
+    "platformDetails":{
+        "credentials": "able-balm-233517-aededab553e2.json",
+        "project" : "able-balm-233517"
+        
+        
+
+
+    },
+    "validate_nodes":[
+        {   "name":"validnode1",
+            "password": "node1",
+            "datadir": "node1",
+            "bootnodes": true,
+            "rpc": true,
+            "ws": true,
+            "rpcapi": "eth",
+            "rpccorsdomain": "*",
+            "wsorigins": "*",
+            "startupScript":"startup_validate0.sh",
+            "startupScriptmain":"requirements0.sh",
+            "expectScript":"startexp0.exp",
+            "startvalidnode":"startvalidnode0.sh"
+
+        },
+        {   "name":"validnode2",
+            "password": "node2",
+            "datadir": "node2",
+            "bootnodes": true,
+            "rpc": true,
+            "ws": true,
+            "rpcapi": "eth",
+            "rpccorsdomain": "*",
+            "wsorigins": "*",
+            "startupScript":"startup_validate1.sh",
+            "startupScriptmain":"requirements1.sh",
+            "expectScript":"startexp1.exp",
+            "startvalidnode":"startvalidnode1.sh"
+        }
+    ],
+
+    "nodes": [
+        {
+            "name": "node1",
+            "datadir": "node1",
+            "bootnodes": true,
+            "rpc": true,
+            "ws": true,
+            "rpcapi": "eth",
+            "rpccorsdomain": "*",
+            "wsorigins": "*",
+            "startupScript":"startup_script0.sh",
+            "startnode":"startnode0.sh"
+        },
+        {
+            "name": "node2",
+            "datadir": "node2",
+            "bootnodes": true,
+            "rpc": true,
+            "ws": true,
+            "rpcapi": "net",
+            "rpccorsdomain": "*",
+            "wsorigins": "*",
+            "startupScript":"startup_script1.sh",
+            "startnode":"startnode1.sh"
+        },
+        {
+            "name": "node3",
+            "datadir": "node3",
+            "bootnodes": true,
+            "rpc": true,
+            "ws": true,
+            "rpcapi": "eth,net",
+            "rpccorsdomain": "*",
+            "wsorigins": "*",
+            "startupScript":"startup_script2.sh",
+            "startnode":"startnode2.sh"
+        }
+    ]
+    
+}

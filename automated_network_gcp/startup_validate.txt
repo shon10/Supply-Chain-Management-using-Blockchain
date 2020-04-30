@@ -1,0 +1,12 @@
+#! /bin/bash
+
+geth --datadir node1 account new
+
+boot=$(cat output.txt)
+account=$(jq '.address' /home/node1/keystore/UTC* | xargs -n 3)
+
+python create_genesis.py --chain_id "1234" --prefunded_accounts "0x182d8bd276cca922c26f3f84a0a5d725cddbb3a3" --gas_limit "0xfff" --difficulty "0x400" --balance "0293846"
+
+geth --datadir node1/ init Genesis.json
+
+

@@ -1,0 +1,21 @@
+#!/usr/bin/expect
+
+
+spawn "/home/startup.sh"
+
+
+expect "Passphrase:" 
+send "world\n";
+expect "Repeat passphrase:"
+send "world\n"
+
+
+
+expect "Passphrase:" 
+send "world\n"
+
+interact
+
+
+
+

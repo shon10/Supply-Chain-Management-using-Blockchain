@@ -1,0 +1,34 @@
+resource "google_compute_instance" "{{name}}" {
+ name         = "{{name}}"
+ machine_type = "n1-standard-1"
+ zone         = "asia-east1-a"
+ tags          = ["startup-node"]
+
+ boot_disk {
+   initialize_params {
+     image = "ubuntu-os-cloud/ubuntu-1604-lts"
+     size = 50
+   }
+ }
+
+
+
+// Make sure flask is installed on all new instances for later steps
+metadata = {
+   foo = "bar"
+       startup-script = "${file("${path.module}/{{startup_script}}")}"
+       
+     }
+    service_account {
+    scopes = ["userinfo-email", "compute-ro", "storage-rw"]
+}
+
+ network_interface {
+   network = "default"
+
+   access_config {
+     
+     // Include this section to give the VM an external ip address
+   }
+ }
+}

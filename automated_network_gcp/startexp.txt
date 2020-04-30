@@ -1,0 +1,20 @@
+#!/usr/bin/expect
+
+
+spawn "/home/{{startup_validate.sh}}"
+set pass {{password}}
+
+expect "Passphrase:" 
+send "$pass\n";
+expect "Repeat passphrase:"
+send "$pass\n"
+
+
+
+expect "Passphrase:" 
+send "$pass\n"
+
+interact
+
+
+

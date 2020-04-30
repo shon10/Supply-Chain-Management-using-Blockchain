@@ -1,0 +1,32 @@
+// Configure the Google Cloud provider
+provider "google" {
+ credentials = "${file("{{credentials.json}}")}"
+ project     = "{{project_name}}"
+ region      = "asia-east1"
+}
+
+// Terraform plugin for creating random ids
+resource "random_id" "instance_id" {
+ byte_length = 8
+}
+
+
+resource "google_compute_firewall" "{{firewall-name}}" {
+  name = "{{firewall-name}}"
+  network = "default"
+  allow {
+    protocol = "udp"
+    ports = ["30300-30309"]
+  }
+
+  allow {
+      protocol = "tcp"
+      ports = ["8000-8010","30300-30309"]# Server RPC
+    }
+
+    source_tags = ["startup-node"]
+    target_tags = ["startup-node"]
+}
+
+
+

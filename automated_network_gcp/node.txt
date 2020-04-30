@@ -1,0 +1,1 @@
+gsutil cp /home/shonak/repos/eth-template/automated_network_gcp/{{startnode.sh}} gs://blockchain-123/ 

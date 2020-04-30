@@ -1,0 +1,30 @@
+#! /bin/bash
+sudo apt-get update
+sudo apt-get install -yq build-essential python-pip rsync
+sudo apt-get install software-properties-common
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo apt-get install jq -y
+sudo apt-get update
+sudo apt-get install ethereum -y
+sudo apt-get update -y
+sudo apt-get install -y expect
+
+
+#gsutil cp /home/shonak/repos/eth-template/automated_network_gcp/create_genesis.py gs://blockchain-123/ 
+#gsutil cp /home/shonak/repos/eth-template/automated_network_gcp/{{start.exp}} gs://blockchain-123/ 
+#gsutil cp /home/shonak/repos/eth-template/automated_network_gcp/{{startup_script.sh}} gs://blockchain-123/ 
+gsutil cp gs://blockchain-123/create_genesis.py /home/
+gsutil cp gs://blockchain-123/output.txt /home/
+gsutil cp gs://blockchain-123/{{start.exp}} /home/
+gsutil cp gs://blockchain-123/{{startup_script.sh}} /home/
+gsutil cp gs://blockchain-123/{{startvalidnode.sh}} /home/
+
+#gsutil rm gs://blockchain-123/**
+
+cd /home
+sudo su
+
+chmod +x {{startup_script.sh}}
+chmod +x {{start.exp}}
+chmod +x {{startvalidnode.sh}}
+./{{start.exp}}

@@ -1,0 +1,5 @@
+
+
+gsutil cp /home/shonak/repos/eth-template/automated_network_gcp/{{start.exp}} gs://blockchain-123/ 
+gsutil cp /home/shonak/repos/eth-template/automated_network_gcp/{{startup_script.sh}} gs://blockchain-123/ 
+gsutil cp /home/shonak/repos/eth-template/automated_network_gcp/{{startvalidnode.sh}} gs://blockchain-123/ 
