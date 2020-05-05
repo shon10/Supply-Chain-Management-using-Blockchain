@@ -1,5 +1,5 @@
 # Private-ethereum-network
-Automate the process of creating a private ethereum network on GCP.
+The project aims at automating the process of creating a private ethereum network for supply chain management of car manufacturing industry in which the owner can keep a track of all the components used in a car along with the information about the owner, purchase date etc. of the car.
 
 ## STEP:0
 Create a GCP account and download the credentials file.
@@ -39,3 +39,6 @@ Run the SSH for validating node(s) and run the *startvalidnode.sh* file and the 
 Run the SSH for normal node(s) and run the *startnode.sh* file.
 
 Finally all the nodes are connected to each other through the bootnode.
+
+
+Link of the working prototype : https://drive.google.com/open?id=14kFeNsQjey-zpx6j8beCKDfiKkuFfH2q
